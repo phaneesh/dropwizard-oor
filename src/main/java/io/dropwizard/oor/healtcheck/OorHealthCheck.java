@@ -17,6 +17,7 @@
 package io.dropwizard.oor.healtcheck;
 
 import com.codahale.metrics.health.HealthCheck;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Singleton;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -24,6 +25,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * @author phaneesh
  */
+@Slf4j
 @Singleton
 public class OorHealthCheck extends HealthCheck {
 
@@ -35,11 +37,14 @@ public class OorHealthCheck extends HealthCheck {
 
     @Override
     protected Result check() throws Exception {
+        Result result = null;
         if(oor.get()) {
-            return Result.unhealthy("Service is out of rotation");
+            result = Result.unhealthy("Service is out of rotation");
         } else {
-            return Result.healthy();
+            result = Result.healthy();
         }
+        log.debug(String.format("OORBundle HealthCheck status: %s, %s", result.isHealthy(), result.getMessage()));
+        return result;
     }
 
     public static void setOor(boolean state) {
