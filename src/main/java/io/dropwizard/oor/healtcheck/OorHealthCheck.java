@@ -43,7 +43,9 @@ public class OorHealthCheck extends HealthCheck {
         } else {
             result = Result.healthy();
         }
-        log.debug("OORBundle HealthCheck status: {}, {}", result.isHealthy(), result.getMessage());
+        if(log.isDebugEnabled()) {
+            log.debug("OORBundle HealthCheck status: {}, {}", result.isHealthy(), result.getMessage());
+        }
         return result;
     }
 
