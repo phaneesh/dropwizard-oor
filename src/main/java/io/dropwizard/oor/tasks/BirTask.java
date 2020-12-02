@@ -22,6 +22,8 @@ import io.dropwizard.oor.healtcheck.OorHealthCheck;
 import io.dropwizard.servlets.tasks.Task;
 
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author phaneesh
@@ -34,7 +36,7 @@ public class BirTask extends Task {
     }
 
     @Override
-    public void execute(ImmutableMultimap<String, String> immutableMultimap, PrintWriter printWriter) throws Exception {
+    public void execute(Map<String, List<String>> params, PrintWriter printWriter) throws Exception {
         OorHealthCheck.oor.getAndSet(false);
         printWriter.println("Service in rotation");
     }
