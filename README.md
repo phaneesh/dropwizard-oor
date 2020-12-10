@@ -22,7 +22,7 @@ This makes it easier perform rolling deployments & maintenance of dropwizard app
 <dependency>
     <groupId>io.dropwizard.oor</groupId>
     <artifactId>dropwizard-oor</artifactId>
-    <version>1.3.13-1</version>
+    <version>2.0.16-1</version>
 </dependency>
 ```
 
