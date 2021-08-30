@@ -4,7 +4,7 @@
 
     <groupId>io.raven.dropwizard</groupId>
     <artifactId>dropwizard-oor</artifactId>
-    <version>2.0.18-1</version>
+    <version>2.0.24-1</version>
     <packaging>jar</packaging>
 
     <name>dropwizard-oor</name>
@@ -35,14 +35,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dropwizard.version>2.0.18</dropwizard.version>
-        <lombok.version>1.18.16</lombok.version>
-        <lombok.maven.version>1.18.16.0</lombok.maven.version>
-        <slf4j.version>1.7.25</slf4j.version>
-        <junit.version>5.7.0</junit.version>
-        <wiremock.version>1.58</wiremock.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <dropwizard.version>2.0.24</dropwizard.version>
+        <lombok.version>1.18.20</lombok.version>
+        <lombok.maven.version>1.18.20.0</lombok.maven.version>
+        <slf4j.version>1.7.32</slf4j.version>
+        <junit.version>5.7.2</junit.version>
+        <wiremock.version>2.27.2</wiremock.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -95,56 +95,14 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>delombok</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <version>1.16.6.1</version>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>lombok-needs-tools-jar</id>
-            <activation>
-                <file>
-                    <exists>${java.home}/../lib/tools.jar</exists>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok-maven-plugin</artifactId>
-                        <version>1.16.6.1</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>sun.jdk</groupId>
-                                <artifactId>tools</artifactId>
-                                <version>1.6</version>
-                                <scope>system</scope>
-                                <systemPath>${java.home}/../lib/tools.jar</systemPath>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
