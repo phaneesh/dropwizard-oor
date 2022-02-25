@@ -18,6 +18,7 @@ package io.dropwizard.oor;
 import io.dropwizard.Configuration;
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.oor.healtcheck.OorHealthCheck;
+import io.dropwizard.oor.resources.HealthCheckResource;
 import io.dropwizard.oor.tasks.BirTask;
 import io.dropwizard.oor.tasks.OorTask;
 import io.dropwizard.setup.Bootstrap;
@@ -42,5 +43,13 @@ public abstract class OorBundle<T extends Configuration> implements ConfiguredBu
         environment.healthChecks().register("oor", new OorHealthCheck(withOor()));
         environment.admin().addTask(new OorTask());
         environment.admin().addTask(new BirTask());
+        if (exposeApplicationPortHealthCheck()) {
+            environment.jersey().register(new HealthCheckResource(environment.healthChecks()));
+        }
+    }
+
+    protected boolean exposeApplicationPortHealthCheck() {
+        //Client to over-ride if healthCheck resource required at application port
+        return false;
     }
 }
