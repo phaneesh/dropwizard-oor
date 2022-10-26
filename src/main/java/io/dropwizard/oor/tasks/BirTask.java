@@ -17,26 +17,29 @@
 
 package io.dropwizard.oor.tasks;
 
+import io.dropwizard.oor.BirHook;
+import io.dropwizard.oor.OorBundle;
 import io.dropwizard.oor.healtcheck.OorHealthCheck;
 import io.dropwizard.servlets.tasks.Task;
 
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author phaneesh
  */
 public class BirTask extends Task {
 
-
     public BirTask() {
         super("BirTask");
     }
 
     @Override
-    public void execute(Map<String, List<String>> map, PrintWriter printWriter) throws Exception {
+    public void execute(Map<String, List<String>> map, PrintWriter printWriter) {
         OorHealthCheck.oor.getAndSet(false);
+        OorBundle.birHooks.forEach(BirHook::execute);
         printWriter.println("Service in rotation");
     }
 }

@@ -24,11 +24,17 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.*;
+
 /**
  * @author phaneesh
  */
 @Slf4j
 public abstract class OorBundle<T extends Configuration> implements ConfiguredBundle<T> {
+
+    public static final List<OorHook> oorHooks = new ArrayList<>();
+
+    public static final List<BirHook> birHooks = new ArrayList<>();
 
     public abstract boolean withOor();
 
@@ -37,8 +43,16 @@ public abstract class OorBundle<T extends Configuration> implements ConfiguredBu
 
     }
 
+    public void registerOorHook(OorHook oorHook) {
+        oorHooks.add(oorHook);
+    }
+
+    public void registerBirHook(BirHook birHook) {
+        birHooks.add(birHook);
+    }
+
     @Override
-    public void run(T configuration, Environment environment) throws Exception {
+    public void run(T configuration, Environment environment) {
         environment.healthChecks().register("oor", new OorHealthCheck(withOor()));
         environment.admin().addTask(new OorTask());
         environment.admin().addTask(new BirTask());
