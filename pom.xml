@@ -2,13 +2,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.raven.dropwizard</groupId>
+    <groupId>com.github.phaneesh</groupId>
     <artifactId>dropwizard-oor</artifactId>
-    <version>2.0.32-4</version>
+    <version>3.0.7-1</version>
     <packaging>jar</packaging>
 
     <name>dropwizard-oor</name>
     <url>https://gitlab.phonepe.com/platform/dropwizard-oor</url>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
     <distributionManagement>
         <repository>
@@ -35,11 +42,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dropwizard.version>2.0.32</dropwizard.version>
-        <lombok.version>1.18.24</lombok.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <dropwizard.version>3.0.7</dropwizard.version>
+        <lombok.version>1.18.32</lombok.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     </properties>
 
     <repositories>
@@ -47,6 +54,11 @@
             <id>clojars</id>
             <name>Clojars repository</name>
             <url>https://clojars.org/repo</url>
+        </repository>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
     </repositories>
 
