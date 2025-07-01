@@ -22,9 +22,11 @@ import io.dropwizard.core.setup.Environment;
 import io.dropwizard.oor.healtcheck.OorHealthCheck;
 import io.dropwizard.oor.tasks.BirTask;
 import io.dropwizard.oor.tasks.OorTask;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author phaneesh
@@ -32,9 +34,11 @@ import java.util.*;
 @Slf4j
 public abstract class OorBundle<T extends Configuration> implements ConfiguredBundle<T> {
 
-    public static final List<OorHook> oorHooks = new ArrayList<>();
+    @Getter
+    private static final List<OorHook> oorHooks = new ArrayList<>();
 
-    public static final List<BirHook> birHooks = new ArrayList<>();
+    @Getter
+    private static final List<BirHook> birHooks = new ArrayList<>();
 
     public abstract boolean withOor();
 

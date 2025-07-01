@@ -2,7 +2,7 @@
 
 This bundle adds a healthcheck which can used to take the application out of rotation from
 a loadbalancer which uses /healthcheck endpoint for healthchecks
-This bundle compiles only on Java 17.
+This bundle compiles only on Java 21.
  
 ## Usage
 This makes it easier perform rolling deployments & maintenance of dropwizard applications
@@ -22,7 +22,7 @@ This makes it easier perform rolling deployments & maintenance of dropwizard app
 <dependency>
     <groupId>com.github.phaneesh</groupId>
     <artifactId>dropwizard-oor</artifactId>
-    <version>3.0.7-1</version>
+    <version>5.0.0-rc.3-1</version>
 </dependency>
 ```
 
