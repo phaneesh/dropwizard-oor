@@ -15,13 +15,13 @@
  */
 package io.dropwizard.oor;
 
-import io.dropwizard.core.Configuration;
-import io.dropwizard.core.ConfiguredBundle;
-import io.dropwizard.core.setup.Bootstrap;
-import io.dropwizard.core.setup.Environment;
+import io.dropwizard.Configuration;
+import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.oor.healtcheck.OorHealthCheck;
 import io.dropwizard.oor.tasks.BirTask;
 import io.dropwizard.oor.tasks.OorTask;
+import io.dropwizard.setup.Bootstrap;
+import io.dropwizard.setup.Environment;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;

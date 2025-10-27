@@ -20,9 +20,9 @@ This makes it easier perform rolling deployments & maintenance of dropwizard app
 * Use the following maven dependency:
 ```
 <dependency>
-    <groupId>com.github.phaneesh</groupId>
+    <groupId>io.dyuti</groupId>
     <artifactId>dropwizard-oor</artifactId>
-    <version>3.0.7-1</version>
+    <version>2.1.12-1</version>
 </dependency>
 ```
 
